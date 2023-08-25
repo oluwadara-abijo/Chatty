@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Chatty</string>
+
+    <!--Common-->
+    <string name="common_loading">…Loading…</string>
+    <string name="common_empty">This resource is empty :(</string>
+    <string name="common_error">Something went wrong!</string>
+    <string name="common_retry">Retry</string>
+
+    <!--Characters-->
+    <string name="characters">Characters</string>
+
+    <!--Events-->
+    <string name="events">Events</string>
+
+    <!--Character Details-->
+    <string name="character_details_image_desc">%s image</string>
+    <string name="character_details_expand_desc">Expand description</string>
+    <string name="character_details_stories">Stories: %d</string>
+    <string name="character_details_comics">Comics: %d</string>
+    <string name="character_details_events">Events: %d</string>
+    <string name="character_details_series">Series: %d</string>
+
+</resources>

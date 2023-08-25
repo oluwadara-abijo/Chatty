@@ -1,0 +1,43 @@
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Runs PR checks"
+  lane :pr_check do
+      # We need to checkout main (this should be replaced by the default branch for the project)
+      # since github action is shallow checkout. The diff from the shallow checkout will be used
+      # during spotlessCheck and incrementalDetekt runs instead of the entire project.
+    sh("git fetch origin main")
+    gradle(tasks: ["spotlessCheck", "incrementalDetekt", "testDebugUnitTestCoverage"])
+  end
+
+  desc "Submit a new Build to Appcenter"
+  lane :app_center do
+    pre_build
+    define_versions_android
+    set_app_versions_android
+    gradle(
+      task: ENV['BUILD_FORMAT'] == "apk" ? "assemble" : "bundle",
+      build_type: ENV['BUILD_CONFIGURATION']
+    )
+#     Uncomment the following lines if you want to publish to app center
+#     upload_to_app_center(
+#       mapping: Actions.lane_context[SharedValues::GRADLE_MAPPING_TXT_OUTPUT_PATH]
+#     )
+    tag
+    create_github_release
+  end
+
+  # Pre-Build sets up the keystore, update git config, and generate changelog
+  private_lane :pre_build do
+    sh("echo $RELEASE_ENCODED_KEYSTORE | base64 --decode > $(echo $PWD)/../extra/release.keystore")
+    sh("git config --global user.email \"tinman@fueled.com\"")
+    sh("git config --global user.name \"tinman\"")
+    generate_changelog(
+        build_config: ENV['BUILD_CONFIGURATION'],
+        ticket_base_url: ENV['TICKET_BASE_URL']
+    )
+  end
+end
