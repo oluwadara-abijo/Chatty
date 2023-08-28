@@ -16,6 +16,7 @@ dependencies {
     implementation(project(":feature:auth"))
     implementation(project(":feature:characters"))
     implementation(project(":feature:events"))
+    implementation(project(":feature:chats"))
 
     implementation(libs.androidx.compose.material.iconsExtended)
     implementation(libs.androidx.navigation.compose)

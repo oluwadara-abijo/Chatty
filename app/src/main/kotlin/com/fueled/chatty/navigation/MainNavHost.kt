@@ -12,16 +12,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.navigation
 import com.fueled.chatty.core.ui.navigation.Graph
 import com.fueled.chatty.core.ui.navigation.GraphSaver
-import com.fueled.chatty.feature.auth.navigation.AuthDestinations
 import com.fueled.chatty.feature.auth.navigation.AuthGraph
-import com.fueled.chatty.feature.auth.navigation.addLoginScreen
-import com.fueled.chatty.feature.characters.navigation.CharactersDestination
-import com.fueled.chatty.feature.characters.navigation.CharactersGraph
-import com.fueled.chatty.feature.characters.navigation.addCharacterDetailScreen
-import com.fueled.chatty.feature.characters.navigation.addCharactersScreen
-import com.fueled.chatty.feature.events.navigation.EventsDestination
-import com.fueled.chatty.feature.events.navigation.EventsGraph
-import com.fueled.chatty.feature.events.navigation.addEventsListScreen
+import com.fueled.chatty.features.chats.navigation.ChatsDestination
+import com.fueled.chatty.features.chats.navigation.ChatsGraph
+import com.fueled.chatty.features.chats.navigation.addChatsListScreen
 
 /**
  * This function sets up the main navigation graph.
@@ -48,84 +42,18 @@ internal fun MainNavHost(
         modifier = modifier,
         startDestination = rootGraph.route,
     ) {
-        addAuthGraph(
-            onLogin = {
-                rootGraph = CharactersGraph
-            },
-        )
-        addCharactersGraph(
-            navController = navController,
-            setToolbarTitle = setToolbarTitle,
-        )
-        addEventsGraph(
-            navController = navController,
-            setToolbarTitle = setToolbarTitle,
-            onLogout = {
-                rootGraph = AuthGraph
-            },
-        )
+        addChatsGraph()
         // ... Other graphs can be added to the main nav host here.
     }
 }
 
-private fun NavGraphBuilder.addAuthGraph(
-    onLogin: () -> Unit,
-    graph: Graph = AuthGraph,
+private fun NavGraphBuilder.addChatsGraph(
+    graph: Graph = ChatsGraph,
 ) {
     navigation(
         route = graph.route,
-        startDestination = AuthDestinations.Login.createRoute(graph),
+        startDestination = ChatsDestination.ChatsList.createRoute(graph),
     ) {
-        addLoginScreen(onLogin = onLogin, graph = graph)
-    }
-}
-
-private fun NavGraphBuilder.addCharactersGraph(
-    navController: NavHostController,
-    setToolbarTitle: (String) -> Unit,
-    graph: Graph = CharactersGraph,
-) {
-    navigation(
-        route = graph.route,
-        startDestination = CharactersDestination.CharacterList.createRoute(graph),
-    ) {
-        addCharactersScreen(
-            graph = graph,
-            setToolbarTitle = setToolbarTitle,
-            openCharacterDetail = { id ->
-                val route = CharactersDestination.CharacterDetail.createRoute(graph, id)
-                navController.navigate(route)
-            },
-        )
-        addCharacterDetailScreen(
-            graph = graph,
-            setToolbarTitle = setToolbarTitle,
-        )
-    }
-}
-
-private fun NavGraphBuilder.addEventsGraph(
-    navController: NavHostController,
-    setToolbarTitle: (String) -> Unit,
-    onLogout: () -> Unit,
-    graph: Graph = EventsGraph,
-) {
-    navigation(
-        route = graph.route,
-        startDestination = EventsDestination.EventsList.createRoute(graph),
-    ) {
-        addEventsListScreen(
-            graph = graph,
-            setToolbarTitle = setToolbarTitle,
-            openCharacterDetail = { id ->
-                val route = CharactersDestination.CharacterDetail.createRoute(graph, id)
-                navController.navigate(route)
-            },
-            onLogout = onLogout,
-        )
-        addCharacterDetailScreen(
-            graph = graph,
-            setToolbarTitle = setToolbarTitle,
-        )
+        addChatsListScreen(graph)
     }
 }

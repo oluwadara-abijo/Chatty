@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":feature:chats")
+
+
 pluginManagement {
     includeBuild("build-logic")
     repositories {
