@@ -8,10 +8,12 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.People
-import androidx.compose.material.icons.filled.Store
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.People
-import androidx.compose.material.icons.outlined.Store
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
@@ -20,10 +22,8 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import com.fueled.chatty.core.ui.R
 import com.fueled.chatty.core.ui.navigation.Graph
 import com.fueled.chatty.core.ui.theme.Dimens
-import com.fueled.chatty.feature.characters.navigation.CharactersDestination.CharacterList
-import com.fueled.chatty.feature.characters.navigation.CharactersGraph
-import com.fueled.chatty.feature.events.navigation.EventsDestination.EventsList
-import com.fueled.chatty.feature.events.navigation.EventsGraph
+import com.fueled.chatty.features.chats.navigation.ChatsDestination.ChatsList
+import com.fueled.chatty.features.chats.navigation.ChatsGraph
 
 /**
  * Wraps the BottomNavigation setup, handles click propagation to parent and selected/unselected state
@@ -82,17 +82,24 @@ data class BottomTab(
 
 val BOTTOM_TABS = listOf(
     BottomTab(
-        graph = CharactersGraph,
-        startDestRoute = CharacterList.createRoute(CharactersGraph),
-        selectedIcon = Icons.Filled.People,
-        unselectedIcon = Icons.Outlined.People,
-        iconTextId = R.string.characters,
+        graph = ChatsGraph,
+        startDestRoute = ChatsList.createRoute(ChatsGraph),
+        selectedIcon = Icons.Filled.Home,
+        unselectedIcon = Icons.Outlined.Home,
+        iconTextId = R.string.chats,
     ),
     BottomTab(
-        graph = EventsGraph,
-        startDestRoute = EventsList.createRoute(EventsGraph),
-        selectedIcon = Icons.Filled.Store,
-        unselectedIcon = Icons.Outlined.Store,
-        iconTextId = R.string.events,
+        graph = ChatsGraph,
+        startDestRoute = ChatsList.createRoute(ChatsGraph),
+        selectedIcon = Icons.Filled.People,
+        unselectedIcon = Icons.Outlined.People,
+        iconTextId = R.string.contacts,
     ),
+    BottomTab(
+        graph = ChatsGraph,
+        startDestRoute = ChatsList.createRoute(ChatsGraph),
+        selectedIcon = Icons.Filled.Settings,
+        unselectedIcon = Icons.Outlined.Settings,
+        iconTextId = R.string.settings,
+    )
 )

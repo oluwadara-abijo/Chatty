@@ -21,4 +21,13 @@
     <string name="character_details_events">Events: %d</string>
     <string name="character_details_series">Series: %d</string>
 
+    <!--Chats-->
+    <string name="chats">Chats</string>
+
+    <!--Contacts-->
+    <string name="contacts">Contacts</string>
+
+    <!--Settings-->
+    <string name="settings">Settings</string>
+
 </resources>

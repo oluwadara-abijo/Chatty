@@ -33,9 +33,8 @@ import com.fueled.chatty.features.chats.navigation.addChatsListScreen
 internal fun MainNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    setToolbarTitle: (String) -> Unit,
 ) {
-    var rootGraph by rememberSaveable(stateSaver = GraphSaver) { mutableStateOf(AuthGraph) }
+    var rootGraph by rememberSaveable(stateSaver = GraphSaver) { mutableStateOf(ChatsGraph) }
 
     NavHost(
         navController = navController,
