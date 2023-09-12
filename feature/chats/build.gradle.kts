@@ -8,4 +8,5 @@ android {
 
 dependencies {
     implementation(libs.androidx.palette.ktx)
+    implementation(libs.gson)
 }

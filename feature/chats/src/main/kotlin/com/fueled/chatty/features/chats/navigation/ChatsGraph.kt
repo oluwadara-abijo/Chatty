@@ -10,7 +10,6 @@ object ChatsGraph : Graph("chats")
 
 sealed class ChatsDestination {
     object ChatsList : Destination("list")
-
 }
 
 fun NavGraphBuilder.addChatsListScreen(graph: Graph) {

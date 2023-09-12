@@ -13,11 +13,9 @@ android {
 dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:ui"))
-    implementation(project(":feature:auth"))
-    implementation(project(":feature:characters"))
-    implementation(project(":feature:events"))
     implementation(project(":feature:chats"))
 
     implementation(libs.androidx.compose.material.iconsExtended)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.gson)
 }

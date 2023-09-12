@@ -45,10 +45,6 @@ gradlePlugin {
             id = "com.fueled.chatty.feature"
             implementationClass = "FeatureConventionPlugin"
         }
-        register("androidLibraryCompose") {
-            id = "com.fueled.chatty.library.compose"
-            implementationClass = "LibraryComposeConventionPlugin"
-        }
         register("spotless") {
             id = "com.fueled.chatty.spotless"
             implementationClass = "SpotlessConventionPlugin"

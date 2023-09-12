@@ -20,4 +20,5 @@ dependencies {
     debugApi(libs.androidx.compose.ui.tooling)
 
     api(libs.bundles.coil)
+    implementation(libs.google.fonts)
 }

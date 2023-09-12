@@ -15,7 +15,7 @@ dependencies {
     implementation(project(":core:common"))
     api(libs.androidx.core.ktx)
 
-    api(libs.bundles.retrofit)
+    api(libs.gson)
 
     api(libs.okhttp.logging.interceptor)
 

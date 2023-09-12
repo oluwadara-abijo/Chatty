@@ -12,7 +12,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.navigation
 import com.fueled.chatty.core.ui.navigation.Graph
 import com.fueled.chatty.core.ui.navigation.GraphSaver
-import com.fueled.chatty.feature.auth.navigation.AuthGraph
 import com.fueled.chatty.features.chats.navigation.ChatsDestination
 import com.fueled.chatty.features.chats.navigation.ChatsGraph
 import com.fueled.chatty.features.chats.navigation.addChatsListScreen

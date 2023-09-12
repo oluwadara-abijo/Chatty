@@ -2,7 +2,6 @@
 
 include(":feature:chats")
 
-
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -42,7 +41,4 @@ include(":core:network")
 include(":core:testing")
 include(":core:ui")
 
-include(":feature:auth")
-include(":feature:characters")
-include(":feature:events")
 include(":detekt-rules")
