@@ -1,6 +1,9 @@
 package com.fueled.chatty.features.chats.domain.model
 
-data class ChatLog(
+/**
+ * Represents a single chat message, which could be of type [ChatType.Sent] or [ChatType.Received]
+ */
+internal data class ChatLog(
     val messageId: Int,
     val type: ChatType,
     val text: String,

@@ -3,20 +3,11 @@ package com.fueled.chatty.features.chats.domain
 import com.fueled.chatty.core.network.data.model.ChatApiModel
 import com.fueled.chatty.core.network.data.model.ChatLogApiModel
 import com.fueled.chatty.core.network.data.model.FriendApiModel
-import com.fueled.chatty.core.testing.BaseTest
 import com.fueled.chatty.features.chats.domain.model.ChatType
 import io.kotest.matchers.shouldBe
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class ChatsRepositoryMapperTest : BaseTest<ChatRepositoryMapper>() {
-
-    override lateinit var underTest: ChatRepositoryMapper
-
-    @BeforeEach
-    fun setup() {
-        underTest = ChatRepositoryMapper()
-    }
+class ChatsRepositoryMapperTest {
 
     @Test
     fun `given chat api model, when mapped, then chat is returned`() {

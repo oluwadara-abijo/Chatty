@@ -8,8 +8,6 @@ import com.fueled.chatty.features.chats.domain.model.ChatDetail
 import com.fueled.chatty.features.chats.domain.model.ChatLog
 import com.fueled.chatty.features.chats.domain.model.ChatType
 
-class ChatRepositoryMapper
-
 internal fun ChatApiModel.mapChat() = Chat(
     id = id,
     lastChat = lastChat,
@@ -18,19 +16,19 @@ internal fun ChatApiModel.mapChat() = Chat(
     picture = picture,
 )
 
-fun mapChatType(type: String): ChatType =
+internal fun mapChatType(type: String): ChatType =
     if (type == "left") ChatType.Received else ChatType.Sent
 
-fun ChatLogApiModel.mapChatLog() = ChatLog(
+internal fun ChatLogApiModel.mapChatLog() = ChatLog(
     messageId = messageId,
     type = mapChatType(side),
     text = text,
     timestamp = timestamp,
 )
 
-fun mapChatLogs(chatLogs: List<ChatLogApiModel>): List<ChatLog> = chatLogs.map { it.mapChatLog() }
+internal fun mapChatLogs(chatLogs: List<ChatLogApiModel>): List<ChatLog> = chatLogs.map { it.mapChatLog() }
 
-fun FriendApiModel.toChatDetail() = ChatDetail(
+internal fun FriendApiModel.toChatDetail() = ChatDetail(
     senderName = name,
     senderPicture = picture,
     chatLogs = mapChatLogs(chatLogs),
