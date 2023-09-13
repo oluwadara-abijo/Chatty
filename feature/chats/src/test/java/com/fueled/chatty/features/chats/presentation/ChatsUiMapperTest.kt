@@ -2,7 +2,8 @@ package com.fueled.chatty.features.chats.presentation
 
 import com.fueled.chatty.core.testing.BaseTest
 import com.fueled.chatty.features.chats.domain.model.Chat
-import com.fueled.chatty.features.chats.presentation.model.ChatUiModel
+import com.fueled.chatty.features.chats.presentation.list.ChatUiMapper
+import com.fueled.chatty.features.chats.presentation.list.model.ChatUiModel
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeTypeOf
 import org.junit.jupiter.api.BeforeEach

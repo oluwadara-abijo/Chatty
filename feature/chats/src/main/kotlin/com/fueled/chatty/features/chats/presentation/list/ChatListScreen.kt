@@ -1,4 +1,4 @@
-package com.fueled.chatty.features.chats.presentation
+package com.fueled.chatty.features.chats.presentation.list
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,7 +10,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.fueled.chatty.core.ui.components.Screen
 import com.fueled.chatty.core.ui.extensions.rememberFlowOnLifecycle
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceDefault
-import com.fueled.chatty.features.chats.presentation.components.ChatRow
+import com.fueled.chatty.features.chats.presentation.list.components.ChatRow
 
 @Composable
 fun ChatsListScreen() {

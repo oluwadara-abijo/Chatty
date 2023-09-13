@@ -1,8 +1,8 @@
-package com.fueled.chatty.features.chats.presentation
+package com.fueled.chatty.features.chats.presentation.list
 
 import com.fueled.chatty.core.common.MessageState
 import com.fueled.chatty.core.common.contract.BaseState
-import com.fueled.chatty.features.chats.presentation.model.ChatUiModel
+import com.fueled.chatty.features.chats.presentation.list.model.ChatUiModel
 
 internal data class ChatsState(
     override val isLoading: Boolean,

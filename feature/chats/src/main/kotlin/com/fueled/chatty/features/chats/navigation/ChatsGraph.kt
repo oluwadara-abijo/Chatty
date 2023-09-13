@@ -4,7 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.fueled.chatty.core.ui.navigation.Destination
 import com.fueled.chatty.core.ui.navigation.Graph
-import com.fueled.chatty.features.chats.presentation.ChatsListScreen
+import com.fueled.chatty.features.chats.presentation.list.ChatsListScreen
 
 object ChatsGraph : Graph("chats")
 

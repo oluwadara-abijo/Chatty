@@ -1,4 +1,4 @@
-package com.fueled.chatty.features.chats.presentation.model
+package com.fueled.chatty.features.chats.presentation.list.model
 
 data class ChatUiModel(
     val lastChat: String,

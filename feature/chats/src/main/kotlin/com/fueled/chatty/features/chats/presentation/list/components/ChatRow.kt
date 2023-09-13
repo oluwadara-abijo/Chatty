@@ -1,4 +1,4 @@
-package com.fueled.chatty.features.chats.presentation.components
+package com.fueled.chatty.features.chats.presentation.list.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -22,7 +22,7 @@ import com.fueled.chatty.core.ui.theme.Dimens.ProfilePictureSize
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceDefault
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceFourth
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceTwoThirds
-import com.fueled.chatty.features.chats.presentation.model.ChatUiModel
+import com.fueled.chatty.features.chats.presentation.list.model.ChatUiModel
 
 @Composable
 fun ChatRow(chat: ChatUiModel) {
