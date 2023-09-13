@@ -7,7 +7,11 @@ internal open class ChatsRepository @Inject constructor(
     private val chatsApi: ChatsApi,
 ) {
 
-    open fun getChats() = fetchChats().map { it.mapChat() }
+    fun getChats() = fetchChats().map { it.mapChat() }
+
+    fun getChatLogs(id: Int) = fetchChatLogs().find { it.id == id }
 
     private fun fetchChats() = chatsApi.getChatsData().profile.chatApiModels
+
+    private fun fetchChatLogs() = chatsApi.getChatsData().friends
 }

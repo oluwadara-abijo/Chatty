@@ -42,3 +42,5 @@ include(":core:testing")
 include(":core:ui")
 
 include(":detekt-rules")
+
+include(":features:chats")
