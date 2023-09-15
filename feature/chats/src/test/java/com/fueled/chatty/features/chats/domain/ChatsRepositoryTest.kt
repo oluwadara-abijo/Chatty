@@ -68,15 +68,13 @@ internal class ChatsRepositoryTest : BaseTest<ChatsRepository>() {
     }
 
     @Test
-    fun `given a null friend id, when getting chat log, then no chat log is returned`() {
+    fun `given a friend id that doesn't exist, when getting chat log, then nothing is returned`() {
         startTest {
             // Given
             every { fakeChatsApi.getChatsData() } returns fakeApiResponse
 
-            val fakeFriendId = 100
-
             // When
-            val repositoryResult = underTest.getChatLogs(fakeFriendId)
+            val repositoryResult = underTest.getChatLogs(123)
 
             // Then
             with(repositoryResult) {
