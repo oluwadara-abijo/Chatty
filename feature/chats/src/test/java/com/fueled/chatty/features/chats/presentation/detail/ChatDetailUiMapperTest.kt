@@ -1,10 +1,9 @@
-package com.fueled.chatty.features.chats.presentation
+package com.fueled.chatty.features.chats.presentation.detail
 
 import com.fueled.chatty.core.testing.BaseTest
 import com.fueled.chatty.features.chats.domain.model.ChatDetail
 import com.fueled.chatty.features.chats.domain.model.ChatLog
 import com.fueled.chatty.features.chats.domain.model.ChatType
-import com.fueled.chatty.features.chats.presentation.detail.ChatDetailUiMapper
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

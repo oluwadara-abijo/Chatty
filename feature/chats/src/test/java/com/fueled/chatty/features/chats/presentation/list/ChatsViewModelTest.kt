@@ -1,12 +1,10 @@
-package com.fueled.chatty.features.chats.presentation
+package com.fueled.chatty.features.chats.presentation.list
 
 import app.cash.turbine.test
 import com.fueled.chatty.core.common.DispatcherProvider
 import com.fueled.chatty.core.testing.BaseTest
 import com.fueled.chatty.features.chats.domain.ChatsRepository
 import com.fueled.chatty.features.chats.domain.model.Chat
-import com.fueled.chatty.features.chats.presentation.list.ChatUiMapper
-import com.fueled.chatty.features.chats.presentation.list.ChatsViewModel
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.nulls.shouldBeNull
