@@ -13,7 +13,7 @@ import javax.inject.Inject
 internal class ChatDetailViewModel @Inject constructor(
     private val chatsRepository: ChatsRepository,
     private val uiMapper: ChatDetailUiMapper,
-    private val savedStateHandle: SavedStateHandle,
+    savedStateHandle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
 ) : BaseViewModel<ChatDetailState, ChatDetailViewAction>(initialState(), dispatcherProvider) {
 
