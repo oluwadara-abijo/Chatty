@@ -10,5 +10,6 @@ internal class ChatUiMapper @Inject constructor() {
         timestamp = chat.latestTimestamp,
         name = chat.name,
         picture = chat.picture,
+        friendId = chat.id,
     )
 }

@@ -4,8 +4,9 @@ import com.fueled.chatty.features.chats.domain.model.ChatDetail
 import com.fueled.chatty.features.chats.domain.model.ChatLog
 import com.fueled.chatty.features.chats.presentation.detail.model.ChatDetailUiModel
 import com.fueled.chatty.features.chats.presentation.detail.model.ChatLogUiModel
+import javax.inject.Inject
 
-internal class ChatDetailUiMapper {
+internal class ChatDetailUiMapper @Inject constructor() {
     fun mapChatLog(chatLog: ChatLog) = ChatLogUiModel(
         text = chatLog.text,
         timeStamp = chatLog.timestamp,

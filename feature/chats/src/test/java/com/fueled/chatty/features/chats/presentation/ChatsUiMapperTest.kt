@@ -38,6 +38,7 @@ internal class ChatsUiMapperTest : BaseTest<ChatUiMapper>() {
             timestamp shouldBe fakeChat.latestTimestamp
             name shouldBe fakeChat.name
             picture shouldBe fakeChat.picture
+            friendId shouldBe fakeChat.id
         }
     }
 }

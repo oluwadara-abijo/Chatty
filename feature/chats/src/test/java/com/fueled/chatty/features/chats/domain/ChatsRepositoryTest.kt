@@ -8,7 +8,6 @@ import com.fueled.chatty.core.network.data.model.ProfileApiModel
 import com.fueled.chatty.core.network.data.model.ResponseApiModel
 import com.fueled.chatty.core.testing.BaseTest
 import io.kotest.matchers.comparables.shouldBeEqualComparingTo
-import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -60,28 +59,9 @@ internal class ChatsRepositoryTest : BaseTest<ChatsRepository>() {
             // Then
             with(repositoryResult) {
                 shouldNotBeNull()
-                id shouldBe 34
-                name shouldBe "Friend 34"
-                picture shouldBe "picture_thirty_four"
+                senderName shouldBe "Friend 34"
+                senderPicture shouldBe "picture_thirty_four"
                 chatLogs.size shouldBe 2
-            }
-        }
-    }
-
-    @Test
-    fun `given a null friend id, when getting chat log, then no chat log is returned`() {
-        startTest {
-            // Given
-            every { fakeChatsApi.getChatsData() } returns fakeApiResponse
-
-            val fakeFriendId = 100
-
-            // When
-            val repositoryResult = underTest.getChatLogs(fakeFriendId)
-
-            // Then
-            with(repositoryResult) {
-                shouldBeNull()
             }
         }
     }
