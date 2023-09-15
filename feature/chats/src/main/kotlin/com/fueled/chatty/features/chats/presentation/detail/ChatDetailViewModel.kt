@@ -25,7 +25,9 @@ internal class ChatDetailViewModel @Inject constructor(
 
     private fun getChatDetail() {
         val chatDetail = chatsRepository.getChatLogs(friendId)
-        updateChatDetail(chatDetail)
+        if (chatDetail != null) {
+            updateChatDetail(chatDetail)
+        }
     }
 
     private fun updateChatDetail(chatDetail: ChatDetail) {
