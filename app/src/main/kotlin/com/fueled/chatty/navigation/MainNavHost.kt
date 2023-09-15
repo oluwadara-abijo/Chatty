@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -14,6 +13,7 @@ import com.fueled.chatty.core.ui.navigation.Graph
 import com.fueled.chatty.core.ui.navigation.GraphSaver
 import com.fueled.chatty.features.chats.navigation.ChatsDestination
 import com.fueled.chatty.features.chats.navigation.ChatsGraph
+import com.fueled.chatty.features.chats.navigation.addChatDetailScreen
 import com.fueled.chatty.features.chats.navigation.addChatsListScreen
 
 /**
@@ -33,25 +33,33 @@ internal fun MainNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
 ) {
-    var rootGraph by rememberSaveable(stateSaver = GraphSaver) { mutableStateOf(ChatsGraph) }
+    val rootGraph by rememberSaveable(stateSaver = GraphSaver) { mutableStateOf(ChatsGraph) }
 
     NavHost(
         navController = navController,
         modifier = modifier,
         startDestination = rootGraph.route,
     ) {
-        addChatsGraph()
+        addChatsGraph(navController = navController)
         // ... Other graphs can be added to the main nav host here.
     }
 }
 
 private fun NavGraphBuilder.addChatsGraph(
     graph: Graph = ChatsGraph,
+    navController: NavHostController,
 ) {
     navigation(
         route = graph.route,
         startDestination = ChatsDestination.ChatsList.createRoute(graph),
     ) {
-        addChatsListScreen(graph)
+        addChatsListScreen(
+            graph = graph,
+            navigateToChatDetail = { friendId ->
+                val route = ChatsDestination.ChatDetail.createRoute(graph, friendId)
+                navController.navigate(route)
+            },
+        )
+        addChatDetailScreen(graph = graph)
     }
 }

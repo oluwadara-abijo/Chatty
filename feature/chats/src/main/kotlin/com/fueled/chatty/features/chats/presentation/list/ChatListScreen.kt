@@ -13,18 +13,33 @@ import com.fueled.chatty.core.ui.theme.Dimens.SpaceDefault
 import com.fueled.chatty.features.chats.presentation.list.components.ChatRow
 
 @Composable
-fun ChatsListScreen() {
-    ChatsListContent(hiltViewModel())
+fun ChatsListScreen(
+    navigateToChatDetail: (Int) -> Unit,
+) {
+    ChatsListContent(
+        viewModel = hiltViewModel(),
+        navigateToChatDetail = navigateToChatDetail,
+    )
 }
 
 @Composable
-private fun ChatsListContent(viewModel: ChatsViewModel) {
+private fun ChatsListContent(
+    viewModel: ChatsViewModel,
+    navigateToChatDetail: (Int) -> Unit,
+) {
     val state by rememberFlowOnLifecycle(flow = viewModel.state)
         .collectAsState(ChatsState.initialState())
 
     Screen {
         LazyColumn(modifier = Modifier.padding(horizontal = SpaceDefault)) {
-            item { state.chats.map { ChatRow(chat = it) } }
+            item {
+                state.chats.map {
+                    ChatRow(
+                        chat = it,
+                        navigateToChatDetail = navigateToChatDetail,
+                    )
+                }
+            }
         }
     }
 }
