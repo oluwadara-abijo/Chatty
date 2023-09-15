@@ -35,13 +35,16 @@ fun NavGraphBuilder.addChatsListScreen(
     }
 }
 
-fun NavGraphBuilder.addChatDetailScreen(graph: Graph) {
+fun NavGraphBuilder.addChatDetailScreen(
+    graph: Graph,
+    navigateUp: () -> Unit,
+) {
     composable(
         route = ChatDetail.createRoute(graph),
         arguments = listOf(
             navArgument(EXTRA_FRIEND_ID) { type = NavType.IntType },
         ),
     ) {
-        ChatDetailScreen()
+        ChatDetailScreen(navigateUp = navigateUp)
     }
 }

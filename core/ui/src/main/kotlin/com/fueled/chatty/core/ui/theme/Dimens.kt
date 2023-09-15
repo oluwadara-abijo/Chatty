@@ -12,6 +12,7 @@ object Dimens {
     val SpaceHalf = 8.dp
     val SpaceTwoThirds = 12.dp
     val SpaceDefault = 16.dp
+    val SpaceLarge = 24.dp
 
     val RadiusDefault = 24.dp
 

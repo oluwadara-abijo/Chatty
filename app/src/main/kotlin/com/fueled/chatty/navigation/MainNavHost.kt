@@ -60,6 +60,9 @@ private fun NavGraphBuilder.addChatsGraph(
                 navController.navigate(route)
             },
         )
-        addChatDetailScreen(graph = graph)
+        addChatDetailScreen(
+            graph = graph,
+            navigateUp = navController::navigateUp,
+        )
     }
 }

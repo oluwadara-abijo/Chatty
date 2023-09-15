@@ -1,6 +1,9 @@
 package com.fueled.chatty.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -29,7 +32,7 @@ import com.fueled.chatty.presentation.components.BOTTOM_TABS
  *
  * This also handles window insets and together with Theme.kt file status bar coloring.
  */
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalLayoutApi::class)
 @Composable
 internal fun MainApp() {
     val navController = rememberNavController()
@@ -52,11 +55,13 @@ internal fun MainApp() {
                     currentDestination = currentDestination,
                 )
             },
+            contentWindowInsets = WindowInsets(0, 0, 0, 0),
         ) { paddingValues ->
             MainNavHost(
                 modifier = Modifier
                     .fillMaxHeight()
-                    .padding(paddingValues),
+                    .padding(paddingValues)
+                    .consumeWindowInsets(paddingValues),
                 navController = navController,
             )
         }
