@@ -123,7 +123,7 @@
           "text":
             "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet",
           "timestamp": "10:03 AM",
-          "side": "left",
+          "side": "right",
           "message_id": 4
         },
         {
@@ -142,7 +142,7 @@
         {
           "text": "Did you recieve the package I sent you the other day?",
           "timestamp": "10:00 AM",
-          "side": "left",
+          "side": "right",
           "message_id": 1
         }
       ]
@@ -163,7 +163,7 @@
           "text":
             "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
           "timestamp": "07:00 AM",
-          "side": "left",
+          "side": "right",
           "message_id": 3
         },
         {
@@ -177,7 +177,7 @@
           "text":
             "Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham",
           "timestamp": "06:55 AM",
-          "side": "left",
+          "side": "right",
           "message_id": 1
         }
       ]
