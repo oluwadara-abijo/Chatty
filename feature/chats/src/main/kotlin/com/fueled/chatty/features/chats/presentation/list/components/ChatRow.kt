@@ -75,6 +75,7 @@ private fun ChatRowPreview() {
         picture = "https://image.ibb.co/cA2oOb/alex_1.jpg",
         timestamp = "11:30 AM",
         lastChat = "Or maybe not, let me check logistics and call you. Give me sometime",
+        friendId = 2,
     )
 
     ChatRow(chat)

@@ -10,9 +10,8 @@ internal open class ChatsRepository @Inject constructor(
 
     fun getChats() = fetchChats().map { it.mapChat() }
 
-    fun getChatLogs(id: Int): ChatDetail {
-        val friendApiModel = fetchChatLogs().find { it.id == id }!!
-        return friendApiModel.toChatDetail()
+    fun getChatLogs(id: Int): ChatDetail? {
+        return fetchChatLogs().find { it.id == id }?.toChatDetail()
     }
 
     private fun fetchChats() = chatsApi.getChatsData().profile.chatApiModels
