@@ -1,4 +1,4 @@
-package com.fueled.chatty.feature.contacts
+package com.fueled.chatty.feature.contacts.domain
 
 import com.fueled.chatty.core.network.ChatsApi
 import com.fueled.chatty.core.network.data.model.ContactApiModel

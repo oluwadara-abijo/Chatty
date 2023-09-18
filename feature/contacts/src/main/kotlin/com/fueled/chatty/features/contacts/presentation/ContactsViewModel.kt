@@ -28,11 +28,6 @@ internal class ContactsViewModel @Inject constructor(
     }
 
     private fun getContacts() {
-        updateState { state ->
-            state.copy(
-                isLoading = true,
-            )
-        }
         val contactList = contactsRepository.getContacts()
         updateContactsList(contactList)
     }
