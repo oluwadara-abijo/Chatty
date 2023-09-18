@@ -1,7 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":feature:chats")
-
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -43,4 +41,5 @@ include(":core:ui")
 
 include(":detekt-rules")
 
-include(":features:chats")
+include(":feature:chats")
+include(":feature:contacts")
