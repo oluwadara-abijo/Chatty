@@ -25,6 +25,8 @@ import com.fueled.chatty.core.ui.R
 import com.fueled.chatty.core.ui.navigation.Graph
 import com.fueled.chatty.features.chats.navigation.ChatsDestination.ChatsList
 import com.fueled.chatty.features.chats.navigation.ChatsGraph
+import com.fueled.chatty.features.contacts.navigation.ContactsDestination.ContactsList
+import com.fueled.chatty.features.contacts.navigation.ContactsGraph
 
 /**
  * Wraps the BottomNavigation setup, handles click propagation to parent and selected/unselected state
@@ -93,8 +95,8 @@ val BOTTOM_TABS = listOf(
         iconTextId = R.string.chats,
     ),
     BottomTab(
-        graph = ChatsGraph,
-        startDestRoute = ChatsList.createRoute(ChatsGraph),
+        graph = ContactsGraph,
+        startDestRoute = ContactsList.createRoute(ContactsGraph),
         selectedIcon = Icons.Filled.People,
         unselectedIcon = Icons.Outlined.People,
         iconTextId = R.string.contacts,
