@@ -5,8 +5,8 @@ import com.fueled.chatty.core.common.DispatcherProvider
 import com.fueled.chatty.core.testing.BaseTest
 import com.fueled.chatty.features.contacts.domain.ContactsRepository
 import com.fueled.chatty.features.contacts.domain.model.Contact
-import com.fueled.chatty.features.contacts.presentation.ContactUiMapper
-import com.fueled.chatty.features.contacts.presentation.ContactsViewModel
+import com.fueled.chatty.features.contacts.presentation.list.ContactUiMapper
+import com.fueled.chatty.features.contacts.presentation.list.ContactsViewModel
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import io.kotest.matchers.nulls.shouldBeNull

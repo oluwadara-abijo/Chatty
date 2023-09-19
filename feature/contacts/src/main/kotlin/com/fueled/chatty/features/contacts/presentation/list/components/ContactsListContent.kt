@@ -1,4 +1,4 @@
-package com.fueled.chatty.features.contacts.presentation.components
+package com.fueled.chatty.features.contacts.presentation.list.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,8 +22,8 @@ import com.fueled.chatty.core.ui.components.SearchBarWidget
 import com.fueled.chatty.core.ui.extensions.rememberFlowOnLifecycle
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceDefault
 import com.fueled.chatty.feature.contacts.R
-import com.fueled.chatty.features.contacts.presentation.ContactsState
-import com.fueled.chatty.features.contacts.presentation.ContactsViewModel
+import com.fueled.chatty.features.contacts.presentation.list.ContactsState
+import com.fueled.chatty.features.contacts.presentation.list.ContactsViewModel
 
 @Composable
 internal fun ContactsListContent(

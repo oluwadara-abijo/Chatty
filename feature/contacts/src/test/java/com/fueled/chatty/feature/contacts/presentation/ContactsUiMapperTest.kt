@@ -2,8 +2,8 @@ package com.fueled.chatty.feature.contacts.presentation
 
 import com.fueled.chatty.core.testing.BaseTest
 import com.fueled.chatty.features.contacts.domain.model.Contact
-import com.fueled.chatty.features.contacts.presentation.ContactUiMapper
-import com.fueled.chatty.features.contacts.presentation.model.ContactUiModel
+import com.fueled.chatty.features.contacts.presentation.list.ContactUiMapper
+import com.fueled.chatty.features.contacts.presentation.list.model.ContactUiModel
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeTypeOf
 import org.junit.jupiter.api.BeforeEach

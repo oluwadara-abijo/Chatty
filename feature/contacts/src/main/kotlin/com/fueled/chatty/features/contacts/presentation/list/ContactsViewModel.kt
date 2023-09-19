@@ -1,10 +1,10 @@
-package com.fueled.chatty.features.contacts.presentation
+package com.fueled.chatty.features.contacts.presentation.list
 
 import com.fueled.chatty.core.common.BaseViewModel
 import com.fueled.chatty.core.common.DispatcherProvider
 import com.fueled.chatty.features.contacts.domain.ContactsRepository
 import com.fueled.chatty.features.contacts.domain.model.Contact
-import com.fueled.chatty.features.contacts.presentation.ContactsState.Companion.initialState
+import com.fueled.chatty.features.contacts.presentation.list.ContactsState.Companion.initialState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.fueled.chatty.features.contacts.presentation.model
+package com.fueled.chatty.features.contacts.presentation.list.model
 
 data class ContactUiModel(
     val id: Int,

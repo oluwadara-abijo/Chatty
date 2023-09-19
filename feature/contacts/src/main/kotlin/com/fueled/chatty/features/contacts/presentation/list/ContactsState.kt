@@ -1,8 +1,8 @@
-package com.fueled.chatty.features.contacts.presentation
+package com.fueled.chatty.features.contacts.presentation.list
 
 import com.fueled.chatty.core.common.MessageState
 import com.fueled.chatty.core.common.contract.BaseState
-import com.fueled.chatty.features.contacts.presentation.model.ContactUiModel
+import com.fueled.chatty.features.contacts.presentation.list.model.ContactUiModel
 
 internal data class ContactsState(
     override val isLoading: Boolean,

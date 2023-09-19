@@ -1,4 +1,4 @@
-package com.fueled.chatty.features.contacts.presentation.components
+package com.fueled.chatty.features.contacts.presentation.list.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,7 +23,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.fueled.chatty.core.ui.theme.Dimens.ProfilePictureSize
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceDefault
 import com.fueled.chatty.feature.contacts.R
-import com.fueled.chatty.features.contacts.presentation.model.ContactUiModel
+import com.fueled.chatty.features.contacts.presentation.list.model.ContactUiModel
 
 @Composable
 fun ContactRow(contact: ContactUiModel) {
