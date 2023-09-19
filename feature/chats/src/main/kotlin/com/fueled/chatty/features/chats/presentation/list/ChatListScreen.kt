@@ -2,6 +2,7 @@ package com.fueled.chatty.features.chats.presentation.list
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -32,13 +33,12 @@ private fun ChatsListContent(
 
     Screen {
         LazyColumn(modifier = Modifier.padding(horizontal = SpaceDefault)) {
-            item {
-                state.chats.map {
-                    ChatRow(
-                        chat = it,
-                        navigateToChatDetail = navigateToChatDetail,
-                    )
-                }
+
+            items(state.chats) { chat ->
+                ChatRow(
+                    chat = chat,
+                    navigateToChatDetail = navigateToChatDetail,
+                )
             }
         }
     }

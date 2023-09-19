@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -33,13 +34,11 @@ internal fun ChatDetailContent(
 
             LazyColumn(modifier = Modifier.padding(horizontal = SpaceDefault)) {
                 if (state.chatDetail != null) {
-                    item {
-                        state.chatDetail!!.chatLogs.map {
-                            ChatRowItem(
-                                chat = it,
-                                senderPicture = state.chatDetail!!.senderPicture,
-                            )
-                        }
+                    items(state.chatDetail!!.chatLogs) {
+                        ChatRowItem(
+                            chat = it,
+                            senderPicture = state.chatDetail!!.senderPicture,
+                        )
                     }
                 }
             }
