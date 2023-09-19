@@ -28,6 +28,7 @@ import com.fueled.chatty.features.contacts.presentation.list.ContactsViewModel
 @Composable
 internal fun ContactsListContent(
     viewModel: ContactsViewModel,
+    navigateToContactDetail: (Int) -> Unit,
 ) {
     val state by rememberFlowOnLifecycle(flow = viewModel.state)
         .collectAsState(ContactsState.initialState())
@@ -40,7 +41,14 @@ internal fun ContactsListContent(
             )
             SearchBarWidget(searchTerm = "")
             LazyColumn {
-                item { state.contacts.map { model -> ContactRow(contact = model) } }
+                item {
+                    state.contacts.map { model ->
+                        ContactRow(
+                            contact = model,
+                            navigateToContactDetail = navigateToContactDetail,
+                        )
+                    }
+                }
             }
         }
         Box(modifier = Modifier.fillMaxSize()) {

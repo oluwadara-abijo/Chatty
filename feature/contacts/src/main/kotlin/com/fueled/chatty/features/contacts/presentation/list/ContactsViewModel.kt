@@ -2,9 +2,12 @@ package com.fueled.chatty.features.contacts.presentation.list
 
 import com.fueled.chatty.core.common.BaseViewModel
 import com.fueled.chatty.core.common.DispatcherProvider
+import com.fueled.chatty.core.common.contract.ViewEvent.Navigate
 import com.fueled.chatty.features.contacts.domain.ContactsRepository
 import com.fueled.chatty.features.contacts.domain.model.Contact
+import com.fueled.chatty.features.contacts.presentation.list.ContactsNavigationTargets.ToContactDetail
 import com.fueled.chatty.features.contacts.presentation.list.ContactsState.Companion.initialState
+import com.fueled.chatty.features.contacts.presentation.list.ContactsViewAction.OpenContactDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -20,7 +23,9 @@ internal class ContactsViewModel @Inject constructor(
     }
 
     override fun onViewAction(viewAction: ContactsViewAction) {
-        return
+        when (viewAction) {
+            is OpenContactDetail -> navigateToContactDetail(viewAction.contactId)
+        }
     }
 
     override fun handleError(throwable: Throwable) {
@@ -38,5 +43,9 @@ internal class ContactsViewModel @Inject constructor(
                 contacts = contactList.map { uiMapper.mapContact(it) },
             )
         }
+    }
+
+    private fun navigateToContactDetail(contactId: Int) {
+        dispatchViewEvent(Navigate(ToContactDetail(contactId)))
     }
 }

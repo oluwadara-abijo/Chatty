@@ -20,17 +20,22 @@ import androidx.compose.ui.layout.ContentScale.Companion.Crop
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import coil.compose.rememberAsyncImagePainter
+import com.fueled.chatty.core.ui.extensions.clickable
 import com.fueled.chatty.core.ui.theme.Dimens.ProfilePictureSize
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceDefault
 import com.fueled.chatty.feature.contacts.R
 import com.fueled.chatty.features.contacts.presentation.list.model.ContactUiModel
 
 @Composable
-fun ContactRow(contact: ContactUiModel) {
+fun ContactRow(
+    contact: ContactUiModel,
+    navigateToContactDetail: (Int) -> Unit,
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(SpaceDefault),
+            .padding(SpaceDefault)
+            .clickable { navigateToContactDetail(contact.id) },
         verticalAlignment = CenterVertically,
     ) {
         if (contact.picture.isEmpty()) {

@@ -16,7 +16,9 @@ import com.fueled.chatty.features.chats.navigation.ChatsGraph
 import com.fueled.chatty.features.chats.navigation.addChatDetailScreen
 import com.fueled.chatty.features.chats.navigation.addChatsListScreen
 import com.fueled.chatty.features.contacts.navigation.ContactsDestination
+import com.fueled.chatty.features.contacts.navigation.ContactsDestination.ContactDetail
 import com.fueled.chatty.features.contacts.navigation.ContactsGraph
+import com.fueled.chatty.features.contacts.navigation.addContactDetailScreen
 import com.fueled.chatty.features.contacts.navigation.addContactsListScreen
 
 /**
@@ -44,7 +46,7 @@ internal fun MainNavHost(
         startDestination = rootGraph.route,
     ) {
         addChatsGraph(navController = navController)
-        addContactsGraph()
+        addContactsGraph(navController = navController)
     }
 }
 
@@ -72,6 +74,7 @@ private fun NavGraphBuilder.addChatsGraph(
 
 private fun NavGraphBuilder.addContactsGraph(
     graph: Graph = ContactsGraph,
+    navController: NavHostController,
 ) {
     navigation(
         route = graph.route,
@@ -79,6 +82,11 @@ private fun NavGraphBuilder.addContactsGraph(
     ) {
         addContactsListScreen(
             graph = graph,
+            navigateToContactDetail = { contactId ->
+                val route = ContactDetail.createRoute(graph, contactId)
+                navController.navigate(route)
+            },
         )
+        addContactDetailScreen(graph = graph)
     }
 }
