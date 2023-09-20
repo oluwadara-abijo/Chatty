@@ -1,16 +1,20 @@
-package com.fueled.chatty.feature.contacts.presentation
+package com.fueled.chatty.feature.contacts.presentation.list
 
 import app.cash.turbine.test
 import com.fueled.chatty.core.common.DispatcherProvider
+import com.fueled.chatty.core.common.contract.ViewEvent.Navigate
 import com.fueled.chatty.core.testing.BaseTest
 import com.fueled.chatty.features.contacts.domain.ContactsRepository
 import com.fueled.chatty.features.contacts.domain.model.Contact
 import com.fueled.chatty.features.contacts.presentation.list.ContactUiMapper
+import com.fueled.chatty.features.contacts.presentation.list.ContactsNavigationTargets.ToContactDetail
+import com.fueled.chatty.features.contacts.presentation.list.ContactsViewAction
 import com.fueled.chatty.features.contacts.presentation.list.ContactsViewModel
 import io.kotest.matchers.booleans.shouldBeFalse
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.every
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.junit5.MockKExtension
@@ -53,6 +57,25 @@ internal class ContactsViewModelTest : BaseTest<ContactsViewModel>() {
                     errorState.shouldBeNull()
                     contacts.shouldNotBeEmpty()
                     contacts.size shouldBe fakeContacts.size
+                }
+            }
+        }
+    }
+
+    @Test
+    fun `given contacts list is displayed, when a contact is clicked, then we navigate to contact detail screen`() {
+        // TODO Fix failing test
+        startTest {
+            val fakeContactId = fakeContacts[0].id
+
+            underTest.events.test {
+                // When
+                underTest.onViewAction(ContactsViewAction.OpenContactDetail(fakeContactId))
+
+                with(awaitItem()) {
+                    shouldBeInstanceOf<Navigate>()
+                    target.shouldBeInstanceOf<ToContactDetail>()
+                    (target as ToContactDetail).contactId shouldBe fakeContactId
                 }
             }
         }

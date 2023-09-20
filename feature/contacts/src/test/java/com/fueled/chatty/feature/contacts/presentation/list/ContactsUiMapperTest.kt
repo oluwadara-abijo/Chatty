@@ -1,4 +1,4 @@
-package com.fueled.chatty.feature.contacts.presentation
+package com.fueled.chatty.feature.contacts.presentation.list
 
 import com.fueled.chatty.core.testing.BaseTest
 import com.fueled.chatty.features.contacts.domain.model.Contact
