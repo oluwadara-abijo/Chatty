@@ -28,9 +28,6 @@ internal class ContactsViewModelTest : BaseTest<ContactsViewModel>() {
     override lateinit var underTest: ContactsViewModel
 
     @RelaxedMockK
-    private lateinit var testDispatcherProvider: DispatcherProvider
-
-    @RelaxedMockK
     private lateinit var contactsRepository: ContactsRepository
 
     @RelaxedMockK
@@ -43,7 +40,7 @@ internal class ContactsViewModelTest : BaseTest<ContactsViewModel>() {
         underTest = ContactsViewModel(
             contactsRepository = contactsRepository,
             uiMapper = chatUiMapper,
-            dispatcherProvider = testDispatcherProvider,
+            dispatcherProvider = dispatcherProvider,
         )
     }
 
@@ -64,11 +61,10 @@ internal class ContactsViewModelTest : BaseTest<ContactsViewModel>() {
 
     @Test
     fun `given contacts list is displayed, when a contact is clicked, then we navigate to contact detail screen`() {
-        // TODO Fix failing test
         startTest {
             val fakeContactId = fakeContacts[0].id
 
-            underTest.events.test {
+            underTest.events.test{
                 // When
                 underTest.onViewAction(ContactsViewAction.OpenContactDetail(fakeContactId))
 
