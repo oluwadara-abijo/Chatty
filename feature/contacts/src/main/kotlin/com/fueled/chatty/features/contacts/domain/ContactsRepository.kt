@@ -16,4 +16,8 @@ internal class ContactsRepository @Inject constructor(
     private fun fetchContacts(): List<ContactApiModel> {
         return chatsApi.getChatsData().contacts
     }
+
+    fun getContactById(contactId: Int): Contact? {
+        return getContacts().find { it.id == contactId }
+    }
 }

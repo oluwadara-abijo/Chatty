@@ -69,6 +69,10 @@ private fun NavGraphBuilder.addChatsGraph(
             graph = graph,
             navigateUp = navController::navigateUp,
         )
+        addContactDetailScreen(
+            graph = graph,
+            navigateUp = navController::navigateUp
+        )
     }
 }
 
@@ -87,6 +91,9 @@ private fun NavGraphBuilder.addContactsGraph(
                 navController.navigate(route)
             },
         )
-        addContactDetailScreen(graph = graph)
+        addContactDetailScreen(
+            graph = graph,
+            navigateUp = navController::navigateUp
+        )
     }
 }

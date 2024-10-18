@@ -17,13 +17,19 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment.Companion.BottomEnd
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import com.fueled.chatty.core.common.Ignored
+import com.fueled.chatty.core.common.contract.ViewEvent
 import com.fueled.chatty.core.ui.components.LargeAppBar
 import com.fueled.chatty.core.ui.components.Screen
 import com.fueled.chatty.core.ui.components.SearchBarWidget
+import com.fueled.chatty.core.ui.extensions.collectAsEffect
 import com.fueled.chatty.core.ui.extensions.rememberFlowOnLifecycle
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceDefault
 import com.fueled.chatty.feature.contacts.R
+import com.fueled.chatty.features.contacts.presentation.list.ContactsNavigationTargets.ToContactDetail
 import com.fueled.chatty.features.contacts.presentation.list.ContactsState
+import com.fueled.chatty.features.contacts.presentation.list.ContactsViewAction
+import com.fueled.chatty.features.contacts.presentation.list.ContactsViewAction.OpenContactDetail
 import com.fueled.chatty.features.contacts.presentation.list.ContactsViewModel
 
 @Composable
@@ -33,6 +39,18 @@ internal fun ContactsListContent(
 ) {
     val state by rememberFlowOnLifecycle(flow = viewModel.state)
         .collectAsState(ContactsState.initialState())
+
+    viewModel.events.collectAsEffect { event ->
+        when (event) {
+            is ViewEvent.Navigate -> {
+                when (val target = event.target) {
+                    is ToContactDetail -> navigateToContactDetail(target.contactId)
+                }
+            }
+
+            else -> Ignored
+        }
+    }
 
     Screen {
         Column {
@@ -45,7 +63,9 @@ internal fun ContactsListContent(
                 items(state.contacts) { contact ->
                     ContactRow(
                         contact = contact,
-                        navigateToContactDetail = navigateToContactDetail,
+                        navigateToContactDetail = { id ->
+                            viewModel.onViewAction(OpenContactDetail(id))
+                        },
                     )
                 }
             }

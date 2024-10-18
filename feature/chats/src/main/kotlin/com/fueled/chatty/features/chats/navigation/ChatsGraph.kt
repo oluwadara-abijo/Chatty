@@ -17,7 +17,7 @@ object ChatsGraph : Graph("chats")
 sealed class ChatsDestination {
     object ChatsList : Destination("list")
 
-    object ChatDetail : Destination("detail/{${EXTRA_FRIEND_ID}}") {
+    object ChatDetail : Destination("detail/{$EXTRA_FRIEND_ID}") {
         fun createRoute(graph: Graph, friendId: Int): String {
             return "${graph.route}/detail/$friendId"
         }

@@ -1,5 +1,8 @@
 package com.fueled.chatty.navigation
 
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import com.fueled.chatty.presentation.components.BottomTab
