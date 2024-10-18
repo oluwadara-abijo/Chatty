@@ -5,7 +5,9 @@ import androidx.compose.ui.unit.dp
 object Dimens {
 
     val ProfilePictureSize = 56.dp
-    val ProfilePictureSizeSmall = 44.dp
+    val ProfilePictureLarge = 120.dp
+    val ProfilePictureSizeMedium = 44.dp
+    val ProfilePictureSizeSmall = 40.dp
 
     val SpaceEighth = 2.dp
     val SpaceFourth = 4.dp

@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import coil.compose.rememberAsyncImagePainter
 import com.fueled.chatty.core.ui.extensions.clickable
 import com.fueled.chatty.core.ui.theme.Dimens.ProfilePictureSize
+import com.fueled.chatty.core.ui.theme.Dimens.ProfilePictureSizeSmall
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceDefault
 import com.fueled.chatty.feature.contacts.R
 import com.fueled.chatty.features.contacts.presentation.list.model.ContactUiModel
@@ -43,7 +44,7 @@ fun ContactRow(
                 painterResource(id = R.drawable.ic_person),
                 contentDescription = stringResource(R.string.profile_picture),
                 modifier = Modifier
-                    .size(ProfilePictureSize)
+                    .size(ProfilePictureSizeSmall)
                     .clip(CircleShape)
                     .background(color = MaterialTheme.colorScheme.surfaceVariant),
                 colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSurface),

@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale.Companion.Crop
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.rememberAsyncImagePainter
-import com.fueled.chatty.core.ui.theme.Dimens.ProfilePictureSizeSmall
+import com.fueled.chatty.core.ui.theme.Dimens.ProfilePictureSizeMedium
 import com.fueled.chatty.core.ui.theme.Dimens.SpaceHalf
 import com.fueled.chatty.features.chats.domain.model.ChatType.Sent
 import com.fueled.chatty.features.chats.presentation.detail.model.ChatLogUiModel
@@ -53,7 +53,7 @@ internal fun ChatRowItem(chat: ChatLogUiModel, senderPicture: String) {
                     contentDescription = "Profile picture",
                     modifier = Modifier
                         .padding(end = SpaceHalf)
-                        .size(ProfilePictureSizeSmall)
+                        .size(ProfilePictureSizeMedium)
                         .clip(CircleShape),
                     contentScale = Crop,
                 )
